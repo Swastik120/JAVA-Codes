@@ -9,12 +9,19 @@ public class Prime{
         boolean isPrime = true;
         System.out.print("Enter any number: ");
         int n = sc.nextInt();
-        
-        int i=2;
-        while(i<n){
-            if(n==2){
+
+        if(n<=1){
+            System.out.println("Not Prime");
+        }
+
+         else if(n==2){
             System.out.println("\nPrime");
             }
+
+        else{
+
+        int i=2;
+        while(i<n){
             if(n%i==0){
                 isPrime = false;
                 break;
@@ -28,5 +35,7 @@ public class Prime{
         else{
             System.out.println("Prime");
         }
+     }
+        
     }
 }
