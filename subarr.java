@@ -1,19 +1,25 @@
-// Program to print the subarrays of a given array using functions. 
-
+// Program to print the maximum sum of a subarray. 
 import java.util.*; 
 
 public class subarr{
-    public static void search(int arr[]){
+    public static int search(int arr[]){
+
+        int currentSum = 0, maxSum = Integer.MIN_VALUE; 
         for (int i = 0; i < arr.length; i++){
-            System.out.print(arr[i]+" ");
-            for (int j = i + 1; j < arr.length; j++){
+            for (int j = i; j < arr.length; j++){
+                
+                currentSum = 0;
                 for (int k = i; k <= j; k++){
-                    System.out.print(arr[k]); 
+                    currentSum += arr[k];
                 }
-                System.out.print(" ");
+                if(currentSum > maxSum){
+                    maxSum = currentSum;
+                }
+                System.out.println(currentSum); 
+
             }
-            System.out.println();
         }
+        return maxSum;
     }
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in); 
@@ -24,6 +30,6 @@ public class subarr{
         for (int i = 0; i < arr.length; i++){
             arr[i] = sc.nextInt(); 
         }
-        search(arr);
+        System.out.print("The maximum subarray is: "+ search(arr));
     }
 }
